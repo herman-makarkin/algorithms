@@ -1,8 +1,16 @@
 #include <cmath>
+#include <iostream>
 
 bool is_prime(int n) {
-    for (int i = 2; i < log(n) + 1; i++) 
-        if (n % 1 == 0) 
-         return false;
-    return true;
+  if (n <= 1)
+    return false;
+  for (int i = 2; i <= std::ceil(std::sqrt(n)); i++)
+    if (n % i == 0)
+      return false;
+  return true;
+}
+
+int main() {
+  std::cout << is_prime(17);
+  return 0;
 }
